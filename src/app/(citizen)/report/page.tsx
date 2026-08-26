@@ -120,10 +120,11 @@ export default function ReportPage() {
             alt=""
             fill
             priority
+            sizes="(max-width: 375px) 100vw, 375px"
             className="object-cover"
           />
           <div className="absolute left-[157px] top-[35px] h-[44px] w-[36px]">
-            <Image src="/assets/report/markers/pin-marker.svg" alt="신고 위치" fill />
+            <Image src="/assets/report/markers/pin-marker.svg" alt="신고 위치" fill sizes="36px" />
           </div>
 
           <div className="absolute left-1/2 top-[137px] w-[335px] -translate-x-1/2 rounded-[16px] bg-white p-[12px] drop-shadow-[0px_4px_12px_rgba(0,0,0,0.09)]">
@@ -275,7 +276,14 @@ export default function ReportPage() {
                   key={photo.id}
                   className="relative size-[88px] shrink-0 overflow-hidden rounded-[12px]"
                 >
-                  <Image src={photo.url} alt="첨부 사진" fill className="object-cover" unoptimized />
+                  <Image
+                    src={photo.url}
+                    alt="첨부 사진"
+                    fill
+                    sizes="88px"
+                    className="object-cover"
+                    unoptimized
+                  />
                   <button
                     type="button"
                     onClick={() => removePhoto(photo.id)}

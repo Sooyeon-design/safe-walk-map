@@ -17,6 +17,7 @@ export default function RouteDetailPage() {
             alt=""
             fill
             priority
+            sizes="400px"
             className="object-cover"
           />
         </div>
@@ -63,7 +64,7 @@ export default function RouteDetailPage() {
                 </div>
                 <div className="relative h-0 w-[7px] shrink-0">
                   <div className="absolute inset-[-3.68px_-7.14%_-3.68px_0]">
-                    <Image src="/assets/route-detail/icons/route-connector.svg" alt="" fill />
+                    <Image src="/assets/route-detail/icons/route-connector.svg" alt="" fill sizes="7px" />
                   </div>
                 </div>
                 <div className="flex w-[120px] shrink-0 items-center gap-[7px]">
@@ -106,7 +107,7 @@ export default function RouteDetailPage() {
           <div className="rotate-[-10.11deg]">
             <div className="relative size-[34px]">
               <div className="absolute left-[-12.07px] top-[-12.09px] size-[58px]">
-                <Image src="/assets/route-detail/markers/current-location.svg" alt="현재 위치" fill />
+                <Image src="/assets/route-detail/markers/current-location.svg" alt="현재 위치" fill sizes="58px" />
               </div>
             </div>
           </div>
@@ -160,13 +161,13 @@ export default function RouteDetailPage() {
             <div className="absolute left-0 top-0 h-[8px] w-[343px] rounded-full bg-[#e5e7eb]" />
             <div className="absolute left-0 top-0 h-[8px] w-[109.898px] rounded-full bg-[#0080ff]" />
             <div className="absolute left-0 top-[-6px] size-[20px]">
-              <Image src="/assets/route-detail/icons/progress-current.svg" alt="" fill />
+              <Image src="/assets/route-detail/icons/progress-current.svg" alt="" fill sizes="20px" />
             </div>
             <div className="absolute left-[101.72px] top-[-6.28px] flex size-[20px] items-center justify-center">
               <div className="rotate-90">
                 <div className="relative size-[20px]">
                   <div className="absolute inset-[-29.41%_-41.18%_-52.94%_-41.18%]">
-                    <Image src="/assets/route-detail/icons/progress-waypoint.svg" alt="" fill />
+                    <Image src="/assets/route-detail/icons/progress-waypoint.svg" alt="" fill sizes="20px" />
                   </div>
                 </div>
               </div>

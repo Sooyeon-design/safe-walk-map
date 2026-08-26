@@ -63,6 +63,7 @@ export default function CitizenMapHomePage() {
             alt=""
             fill
             priority
+            sizes="(max-width: 375px) 100vw, 375px"
             className="object-cover"
           />
         </div>
@@ -120,10 +121,10 @@ export default function CitizenMapHomePage() {
         {/* 출발 마커 */}
         <div className="absolute left-[8px] top-[154px] size-[39px] overflow-clip">
           <div className="absolute inset-[0_12.82%_5.13%_15.38%]">
-            <Image src="/assets/map-home/markers/pin-origin.svg" alt="" fill />
+            <Image src="/assets/map-home/markers/pin-origin.svg" alt="" fill sizes="39px" />
           </div>
           <div className="absolute inset-[17.95%_33.33%_35.9%_33.33%]">
-            <Image src="/assets/map-home/markers/ellipse-origin.svg" alt="" fill />
+            <Image src="/assets/map-home/markers/ellipse-origin.svg" alt="" fill sizes="39px" />
           </div>
           <p className="absolute inset-[17.95%_23.08%_43.59%_25.64%] whitespace-nowrap text-[11px] font-semibold leading-[1.4] text-white">
             출발
@@ -133,10 +134,10 @@ export default function CitizenMapHomePage() {
         {/* 도착 마커 */}
         <div className="absolute left-[335px] top-[301px] size-[39px] overflow-clip">
           <div className="absolute inset-[0_12.82%_5.13%_15.38%]">
-            <Image src="/assets/map-home/markers/pin-destination.svg" alt="" fill />
+            <Image src="/assets/map-home/markers/pin-destination.svg" alt="" fill sizes="39px" />
           </div>
           <div className="absolute inset-[17.95%_33.33%_35.9%_33.33%]">
-            <Image src="/assets/map-home/markers/ellipse-destination.svg" alt="" fill />
+            <Image src="/assets/map-home/markers/ellipse-destination.svg" alt="" fill sizes="39px" />
           </div>
           <p className="absolute inset-[17.95%_23.08%_43.59%_25.64%] whitespace-nowrap text-[11px] font-semibold leading-[1.4] text-white">
             도착
@@ -146,7 +147,7 @@ export default function CitizenMapHomePage() {
         {/* 통합 안전로 라벨 */}
         <div className="absolute left-[142px] top-[205px] h-[45px] w-[66px]">
           <div className="absolute left-0 top-0 h-[43.745px] w-[66px]">
-            <Image src="/assets/map-home/labels/bubble-recommended.svg" alt="" fill />
+            <Image src="/assets/map-home/labels/bubble-recommended.svg" alt="" fill sizes="66px" />
           </div>
           <p className="absolute left-[7.5px] right-[7.5px] top-[4px] whitespace-nowrap text-[11px] font-semibold leading-[1.4] text-[#0080ff]">
             통합 안전로
@@ -162,7 +163,7 @@ export default function CitizenMapHomePage() {
           <p className="text-[10px] font-medium leading-[1.4] text-[#5f646e]">18분 | 1.1km</p>
         </div>
         <div className="absolute left-[264px] top-[197px] size-[12px] rotate-180">
-          <Image src="/assets/map-home/labels/pointer-a.svg" alt="" fill />
+          <Image src="/assets/map-home/labels/pointer-a.svg" alt="" fill sizes="12px" />
         </div>
 
         {/* 최단 경로 라벨 */}
@@ -171,7 +172,7 @@ export default function CitizenMapHomePage() {
           <p className="text-[10px] font-medium leading-[1.4] text-[#5f646e]">14분 | 0.9km</p>
         </div>
         <div className="absolute left-[285px] top-[288px] size-[12px] rotate-180">
-          <Image src="/assets/map-home/labels/pointer-a.svg" alt="" fill />
+          <Image src="/assets/map-home/labels/pointer-a.svg" alt="" fill sizes="12px" />
         </div>
 
         {/* 평탄 경로 라벨 */}
@@ -180,7 +181,7 @@ export default function CitizenMapHomePage() {
           <p className="text-[10px] font-medium leading-[1.4] text-[#5f646e]">19분 | 1.2km</p>
         </div>
         <div className="absolute left-[121px] top-[288px] size-[12px] rotate-90">
-          <Image src="/assets/map-home/labels/pointer-b.svg" alt="" fill />
+          <Image src="/assets/map-home/labels/pointer-b.svg" alt="" fill sizes="12px" />
         </div>
 
         {/* 하단 바텀시트 */}
