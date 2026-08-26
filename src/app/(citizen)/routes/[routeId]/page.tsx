@@ -180,6 +180,7 @@ export default function RouteDetailPage() {
           <div className="flex h-[50px] w-full gap-[8px]">
             <button
               type="button"
+              onClick={() => router.push("/report")}
               className="flex h-full flex-[165_0_0] items-center justify-center gap-[4px] rounded-[12px] bg-[#fee] py-[14px]"
             >
               <Image src="/assets/route-detail/icons/exclamation.svg" alt="" width={20} height={20} />
