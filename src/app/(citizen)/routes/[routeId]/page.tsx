@@ -2,24 +2,60 @@
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { DestinationMarker } from "@/components/citizen/DestinationMarker";
+
+const MAP_ZOOM_STEPS = [1, 1.2, 1.4, 1.6];
 
 export default function RouteDetailPage() {
   const router = useRouter();
+  const [zoomStepIndex, setZoomStepIndex] = useState(0);
+
+  const zoomIn = () => setZoomStepIndex((index) => Math.min(index + 1, MAP_ZOOM_STEPS.length - 1));
+  const zoomOut = () => setZoomStepIndex((index) => Math.max(index - 1, 0));
 
   return (
     <div className="flex min-h-dvh w-full justify-center bg-white">
       <div className="relative min-h-dvh w-full max-w-[375px] overflow-hidden bg-white">
-        {/* 지도 배경 (정적 이미지) */}
-        <div className="absolute left-1/2 top-[-140px] h-[889px] w-[400px] -translate-x-1/2">
-          <Image
-            src="/assets/route-detail/map-background.png"
-            alt=""
-            fill
-            priority
-            sizes="400px"
-            className="object-cover"
-          />
+        {/* 지도 콘텐츠 (배경/마커 등, 확대·축소 대상) */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div
+            className="absolute inset-0 origin-center transition-transform duration-200 ease-out"
+            style={{ transform: `scale(${MAP_ZOOM_STEPS[zoomStepIndex]})` }}
+          >
+            {/* 지도 배경 (정적 이미지) */}
+            <div className="absolute left-1/2 top-[-140px] h-[889px] w-[400px] -translate-x-1/2">
+              <Image
+                src="/assets/route-detail/map-background.png"
+                alt=""
+                fill
+                priority
+                sizes="400px"
+                className="object-cover"
+              />
+            </div>
+
+            {/* 도착 마커 */}
+            <div className="absolute left-[157px] top-[202px]">
+              <DestinationMarker />
+            </div>
+
+            {/* 현재 위치(진행 방향) 표시 */}
+            <div className="absolute left-[176px] top-[545px] flex size-[39.439px] items-center justify-center">
+              <div className="rotate-[-10.11deg]">
+                <div className="relative size-[34px]">
+                  <div className="absolute left-[-12.07px] top-[-12.09px] size-[58px]">
+                    <Image
+                      src="/assets/route-detail/markers/current-location.svg"
+                      alt="현재 위치"
+                      fill
+                      sizes="58px"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* 상태바 */}
@@ -97,22 +133,6 @@ export default function RouteDetailPage() {
           </div>
         </div>
 
-        {/* 도착 마커 */}
-        <div className="absolute left-[157px] top-[202px]">
-          <DestinationMarker />
-        </div>
-
-        {/* 현재 위치(진행 방향) 표시 */}
-        <div className="absolute left-[176px] top-[545px] flex size-[39.439px] items-center justify-center">
-          <div className="rotate-[-10.11deg]">
-            <div className="relative size-[34px]">
-              <div className="absolute left-[-12.07px] top-[-12.09px] size-[58px]">
-                <Image src="/assets/route-detail/markers/current-location.svg" alt="현재 위치" fill sizes="58px" />
-              </div>
-            </div>
-          </div>
-        </div>
-
         {/* 지도 우측 상단 컨트롤 (레이어/내 위치) */}
         <div className="absolute left-[319px] top-[193px] flex w-[40px] flex-col items-start gap-[12px]">
           <button
@@ -133,11 +153,12 @@ export default function RouteDetailPage() {
         <div className="absolute left-[321px] top-[513px] flex h-[80px] w-[40px] flex-col items-start overflow-clip rounded-[12px] bg-white shadow-[0px_2px_4px_-2px_rgba(0,0,0,0.1)]">
           <button
             type="button"
+            onClick={zoomIn}
             className="flex size-[40px] items-center justify-center border-b border-[#e5e7eb]"
           >
             <span className="text-[20px] font-bold leading-[24px] text-[#4a5565]">+</span>
           </button>
-          <button type="button" className="flex size-[40px] items-center justify-center">
+          <button type="button" onClick={zoomOut} className="flex size-[40px] items-center justify-center">
             <span className="text-[20px] font-bold leading-[24px] text-[#4a5565]">−</span>
           </button>
         </div>
