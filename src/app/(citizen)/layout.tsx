@@ -12,6 +12,11 @@ const pretendard = localFont({
       weight: "600",
       style: "normal",
     },
+    {
+      path: "../../../node_modules/pretendard/dist/web/static/woff2/Pretendard-Bold.woff2",
+      weight: "700",
+      style: "normal",
+    },
   ],
   variable: "--font-pretendard",
   display: "swap",

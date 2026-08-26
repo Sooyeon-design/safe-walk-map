@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { RouteOptionCard, type RouteOption } from "@/components/citizen/RouteOptionCard";
 
@@ -49,6 +50,7 @@ const ROUTE_OPTIONS: RouteOption[] = [
 ];
 
 export default function CitizenMapHomePage() {
+  const router = useRouter();
   const [selectedRouteId, setSelectedRouteId] = useState<string>("integrated");
 
   return (
@@ -196,6 +198,7 @@ export default function CitizenMapHomePage() {
 
           <button
             type="button"
+            onClick={() => router.push(`/routes/${selectedRouteId}`)}
             className="flex h-[50px] w-full items-center justify-center gap-[2px] rounded-[12px] bg-[#0080ff]"
           >
             <span className="relative flex size-[25px] rotate-[39deg] items-center justify-center">
